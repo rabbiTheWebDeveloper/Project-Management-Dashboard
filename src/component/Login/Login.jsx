@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { CustomButton } from "../ui/Button";
 import { H2 } from "../ui/Tag";
-import { CustomInput } from "../ui/input";
+import { CustomInput } from "../ui/Input";
+
 
 const Login = () => {
   return (
