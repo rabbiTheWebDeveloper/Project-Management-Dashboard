@@ -1,11 +1,14 @@
-import React from 'react';
+import { Button } from "antd";
 
-const Button = () => {
+export const CustomButton = ({ children, type, className }) => {
   return (
-    <div>
-      <h2>Hello </h2>
-    </div>
+    <>
+      <Button
+        type={type}
+        className={`py-3 px-5 rounded-md !bg-main-color !text-white !hover:bg-hover-color !font-medium ${className}`}
+      >
+        {children}
+      </Button>
+    </>
   );
 };
-
-export default Button;
