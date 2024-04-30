@@ -1,11 +1,9 @@
-import React from 'react';
+import TaskBoard from "@/component/Task/TaskBoard";
 
-const TaskPage = () => {
+export default function page() {
   return (
-    <div>
-      <h2> Hello Task </h2>
-    </div>
+    <>
+      <TaskBoard/>
+    </>
   );
-};
-
-export default TaskPage;
+}

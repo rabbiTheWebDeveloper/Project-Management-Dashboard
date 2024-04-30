@@ -32,9 +32,9 @@ const DashboardLayout = ({ children }) => {
             label: <Link href={`/dashboard`}>Dashboard</Link>
           },
           {
-            key: '/product',
+            key: '/task',
             icon: <VideoCameraOutlined />,
-            label: <Link href={`/product`}>Task</Link>
+            label: <Link href={`/task`}>Task</Link>
           },
           {
             key: '/settings',
