@@ -27,6 +27,9 @@ const TaskTable = () => {
       <thead>
         <tr className="rounded-xl  shadow-md">
           <th className="text-lg font-medium text-custom-text-color1 p-5 ">
+          SL
+          </th>
+          <th className="text-lg font-medium text-custom-text-color1 p-5 ">
           Title
           </th>
           <th className="text-lg font-medium text-custom-text-color1 p-5 ">
@@ -48,8 +51,8 @@ const TaskTable = () => {
       </thead>
       <tbody className="">
         {
-          tasks.map((task) => (
-            <TaskCard key={task.id} task={task} />
+          tasks.map((task , index) => (
+            <TaskCard key={task.id} task={task} index={index} />
           ))
         }
        {/* <TaskCard/> */}

@@ -2,11 +2,11 @@ import React from "react";
 import TaskAction from "./TaskAction";
 import { Flex, Tag } from "antd";
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task , index }) => {
   return (
     <tr className="rounded-xl shadow-md text-center">
       <td className="text-base font-normal text-custom-text-color2 p-5">
-        {task?.title}
+        {index + 1}
       </td>
       <td className="text-base font-normal text-custom-text-color2 p-5">
         {task?.title}
