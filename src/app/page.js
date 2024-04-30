@@ -1,95 +1,131 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+"use client"
+import { Button, Form, Input, Select, Space } from 'antd';
+const { Option } = Select;
+const layout = {
+  labelCol: {
+    span: 8,
+  },
+  wrapperCol: {
+    span: 16,
+  },
+};
+const tailLayout = {
+  wrapperCol: {
+    offset: 8,
+    span: 16,
+  },
+};
 export default function Home() {
+
+  const [form] = Form.useForm();
+  const onGenderChange = (value) => {
+    switch (value) {
+      case 'male':
+        form.setFieldsValue({
+          note: 'Hi, man!',
+        });
+        break;
+      case 'female':
+        form.setFieldsValue({
+          note: 'Hi, lady!',
+        });
+        break;
+      case 'other':
+        form.setFieldsValue({
+          note: 'Hi there!',
+        });
+        break;
+      default:
+    }
+  };
+  const onFinish = (values) => {
+    console.log(values);
+  };
+  const onReset = () => {
+    form.resetFields();
+  };
+  const onFill = () => {
+    form.setFieldsValue({
+      note: 'Hello world!',
+      gender: 'male',
+    });
+  };
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className='flex justify-center items-center h-screen bg-slate-100'>
+      <Form
+
+        {...layout}
+        form={form}
+        name="control-hooks"
+        onFinish={onFinish}
+        style={{
+          maxWidth: 600,
+        }}
+      >
+        <Form.Item
+          name="note"
+          label="Note"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="gender"
+          label="Gender"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Select
+            placeholder="Select a option and change input text above"
+            onChange={onGenderChange}
+            allowClear
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+            <Option value="male">male</Option>
+            <Option value="female">female</Option>
+            <Option value="other">other</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          noStyle
+          shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          {({ getFieldValue }) =>
+            getFieldValue('gender') === 'other' ? (
+              <Form.Item
+                name="customizeGender"
+                label="Customize Gender"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            ) : null
+          }
+        </Form.Item>
+        <Form.Item {...tailLayout}>
+          <Space>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+            <Button htmlType="button" onClick={onReset}>
+              Reset
+            </Button>
+            <Button type="link" htmlType="button" onClick={onFill}>
+              Fill form
+            </Button>
+          </Space>
+        </Form.Item>
+      </Form>
+    </div>
   );
 }
