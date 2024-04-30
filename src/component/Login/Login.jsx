@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CustomButton } from "../ui/Button";
 import { H2 } from "../ui/Tag";
 import { CustomInput } from "../ui/input";
@@ -33,7 +34,7 @@ const Login = () => {
           {/* item */}
           <div className="">
             <CustomButton type="submit" className="w-full">
-              Login
+              <Link href="/task">Login</Link>
             </CustomButton>
           </div>
         </form>
