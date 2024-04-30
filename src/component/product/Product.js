@@ -48,7 +48,57 @@ export default function Product() {
                 </tr>
               </thead>
               <tbody className="">
-                <tr className="rounded-xl  shadow-md text-center">
+                <tr className="rounded-xl shadow-md text-center">
+                  <td className="text-base font-normal text-custom-text-color2 p-5">
+                    dfd
+                  </td>
+                  <td className="text-base font-normal text-custom-text-color2 p-5">
+                    dfd
+                  </td>
+                  <td className="text-base font-normal text-custom-text-color2 p-5">
+                    dfd
+                  </td>
+                  <td className="text-base font-normal text-custom-text-color2 p-5">
+                    <div className="flex items-center gap-2 justify-center">
+                      <div className="bg-gray-100 p-2 inline-block rounded-md cursor-pointer">
+                        <FaEye />
+                      </div>
+                      <div className="bg-gray-100 p-2 inline-block rounded-md cursor-pointer">
+                        <CiEdit />
+                      </div>
+                      <div className="bg-gray-100 p-2 inline-block rounded-md cursor-pointer">
+                        <MdDelete />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr className="rounded-xl shadow-md text-center">
+                  <td className="text-base font-normal text-custom-text-color2 p-5">
+                    dfd
+                  </td>
+                  <td className="text-base font-normal text-custom-text-color2 p-5">
+                    dfd
+                  </td>
+                  <td className="text-base font-normal text-custom-text-color2 p-5">
+                    dfd
+                  </td>
+                  <td className="text-base font-normal text-custom-text-color2 p-5">
+                    <div className="flex items-center gap-2 justify-center">
+                      <div className="bg-gray-100 p-2 inline-block rounded-md cursor-pointer">
+                        <FaEye />
+                      </div>
+                      <div className="bg-gray-100 p-2 inline-block rounded-md cursor-pointer">
+                        <CiEdit />
+                      </div>
+                      <div className="bg-gray-100 p-2 inline-block rounded-md cursor-pointer">
+                        <MdDelete />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr className="rounded-xl shadow-md text-center">
                   <td className="text-base font-normal text-custom-text-color2 p-5">
                     dfd
                   </td>
