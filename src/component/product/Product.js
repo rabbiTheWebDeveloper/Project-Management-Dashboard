@@ -14,7 +14,7 @@ export default function Product() {
         <Container>
           {/* header */}
 
-          <H2 name="Product List" />
+          <H2 name="Your Tasks" />
 
           <div className="flex justify-end">
             <CustomButton
