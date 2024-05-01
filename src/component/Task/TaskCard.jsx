@@ -104,7 +104,7 @@ const TaskCard = ({id,
   <CustomSelect status ={task?.status}/>
         {/* {task?.status} */}
       </td>
-      <TaskAction />
+      <TaskAction taskId={task?.id} />
     </tr>
   );
 };

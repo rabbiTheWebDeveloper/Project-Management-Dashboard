@@ -2,27 +2,18 @@
 import React, { useCallback, useState } from "react";
 import TaskCard from "./TaskCard";
 import update from 'immutability-helper';
-const tasks = [
-  {
-    id: 1,
-    title: "Task 1",
-    description: "Description of Task 1",
-    deadline: "2024-05-05",
-    members: ["John", "Jane"],
-    status: "todo",
-  },
-  {
-    id: 2,
-    title: "Task 2",
-    description: "Description of Task 2",
-    deadline: "2024-05-10",
-    members: ["Alice", "Bob"],
-    status: "inProgress",
-  },
-  // Add more tasks as needed
-];
-
+import { useQuery } from '@tanstack/react-query';
+import axios from "axios";
+const retrieveTasks = async({queryKey}) => {
+  const response = await axios.get(`http://localhost:3000/tasks`);
+  return response.data;
+}
 const TaskTable = () => {
+  const {data: tasks, error, isLoading} = useQuery({
+    queryKey: ["tasks",],
+    queryFn: retrieveTasks,
+  });
+  
   const [cards, setCards] = useState([]);
   const moveCard = useCallback((dragIndex, hoverIndex) => {
     setCards((prevCards) => {
@@ -39,6 +30,7 @@ const TaskTable = () => {
       return updatedCards;
     });
   }, []);
+  
   const renderCard = useCallback(
     (card, index, slots) => {
       return (
@@ -55,6 +47,8 @@ const TaskTable = () => {
     },
     [moveCard]
   );
+  if(isLoading) return <div>Fetching Project...</div>
+  if(error) return <div>An error occured: {error.message}</div>
   return (
     <div className="mt-10 overflow-x-auto">
       <table className="w-full">
@@ -88,7 +82,7 @@ const TaskTable = () => {
             <TaskCard key={task.id} task={task} index={index} />
           ))} */}
 
-          {tasks.map((card, i) =>
+          {tasks && tasks.map((card, i) =>
             renderCard(
               card,
               i,

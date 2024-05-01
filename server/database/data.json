@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "id": 2,
+      "id": "2",
       "name": "Project B",
       "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "tasks": [
@@ -55,21 +55,26 @@
   ],
   "tasks": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Task 1",
       "description": "Description of Task 1",
       "deadline": "2024-05-05",
-      "members": ["John", "Jane"],
+      "members": [
+        "John",
+        "Jane"
+      ],
       "status": "todo"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Task 2",
       "description": "Description of Task 2",
       "deadline": "2024-05-10",
-      "members": ["Alice", "Bob"],
+      "members": [
+        "Alice",
+        "Bob"
+      ],
       "status": "inProgress"
     }
   ]
 }
-
