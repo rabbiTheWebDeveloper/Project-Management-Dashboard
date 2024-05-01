@@ -34,10 +34,7 @@ const TaskTable = () => {
       });
       const movedCard = prevCards[dragIndex];
       console.log('movedCard', movedCard);
-      updateCardIndex(
-        movedCard.id,
-        hoverIndex
-      );
+ 
 
       return updatedCards;
     });
@@ -87,9 +84,9 @@ const TaskTable = () => {
           </tr>
         </thead>
         <tbody className="">
-          {tasks.map((task, index) => (
+          {/* {tasks.map((task, index) => (
             <TaskCard key={task.id} task={task} index={index} />
-          ))}
+          ))} */}
 
           {tasks.map((card, i) =>
             renderCard(

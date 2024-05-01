@@ -27,11 +27,11 @@ export default function ProjectBoard() {
           <H2 name=" Projects of your Team" />
 
           <div className="flex justify-center gap-3">
-            <CustomSelect />
+            {/* <CustomSelect />
             <CustomInput placeholder="Search Tasks" className="w-40" />
             <Button type="primary" onClick={showModal}>
               <IoMdAdd className="text-xl" /> Add
-            </Button>
+            </Button> */}
             {/* <CustomButton
               type="submit"
               className="w-24 !flex items-center gap-2"
