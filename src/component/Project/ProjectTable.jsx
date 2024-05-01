@@ -1,28 +1,23 @@
 import React from 'react';
 import TaskCard from './ProjectCard';
 import ProjectCard from './ProjectCard';
-import { projects } from '@/data';
-const tasks = [
-  {
-    id: 1,
-    title: 'Task 1',
-    description: 'Description of Task 1',
-    deadline: '2024-05-05',
-    members: ['John', 'Jane'],
-    status: 'todo',
-  },
-  {
-    id: 2,
-    title: 'Task 2',
-    description: 'Description of Task 2',
-    deadline: '2024-05-10',
-    members: ['Alice', 'Bob'],
-    status: 'inProgress',
-  },
-  // Add more tasks as needed
-];
 
+import {useQuery} from '@tanstack/react-query'
+import axios from 'axios';
+
+const retrieveProducts = async({queryKey}) => {
+  const response = await axios.get(`http://localhost:3000/projects`);
+  return response.data;
+}
 const ProjectTable = () => {
+
+  const {data: projects, error, isLoading} = useQuery({
+    queryKey: ["projects",],
+    queryFn: retrieveProducts,
+  });
+
+  if(isLoading) return <div>Fetching Project...</div>
+  if(error) return <div>An error occured: {error.message}</div>
   return (
     <div className="mt-10 overflow-x-auto">
     <table className="w-full">
@@ -44,7 +39,7 @@ const ProjectTable = () => {
       </thead>
       <tbody className="">
         {
-          projects.map((project , index) => (
+         projects && projects.map((project , index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))
         }

@@ -15,7 +15,7 @@ const ProjectCard = ({ project , index }) => {
       <td className="text-base font-normal text-custom-text-color2 p-5">
         {project?.description}
       </td>
-      <ProjectAction />
+      <ProjectAction projectId={project.id} />
     </tr>
   );
 };
