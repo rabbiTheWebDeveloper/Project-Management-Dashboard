@@ -2,14 +2,17 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { useRouter } from 'next/navigation';
 
 const AuthenticationPage = () => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter()
   const onFinish = (values) => {
     setLoading(true)
     setTimeout(() => {
       if (values.username === 'admin' && values.password === 'password') {
         message.success('Login successful!');
+        router.push('/dashboard')
       } else {
         message.error('Invalid username or password');
       }
