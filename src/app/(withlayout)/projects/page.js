@@ -1,9 +1,10 @@
-import TaskBoard from "@/component/Task/TaskBoard";
+import ProjectBoard from "@/component/Project/ProjectBoard";
+
 
 export default function page() {
   return (
     <>
-      <TaskBoard/>
+      <ProjectBoard/>
     </>
   );
 }
