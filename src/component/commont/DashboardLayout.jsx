@@ -9,6 +9,9 @@ import {
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 import Link from 'next/link';
+import { IoMdLogOut } from 'react-icons/io';
+import { FaTasks } from 'react-icons/fa';
+import { MdDashboard, MdSettings } from 'react-icons/md';
 const { Header, Sider, Content } = Layout;
 
 const DashboardLayout = ({ children }) => {
@@ -22,24 +25,28 @@ const DashboardLayout = ({ children }) => {
       <div className="demo-logo-vertical" />
       <Menu
         theme="dark"
-     
         mode="inline"
         defaultSelectedKeys={['/dashboard']}
         items={[
           {
             key: '/dashboard',
-            icon: <UserOutlined />,
+            icon: <MdDashboard />,
             label: <Link href={`/dashboard`}>Dashboard</Link>
           },
           {
             key: '/task',
-            icon: <VideoCameraOutlined />,
+            icon: <FaTasks />,
             label: <Link href={`/task`}>Task</Link>
           },
           {
             key: '/settings',
-            icon: <UploadOutlined />,
-            label: <Link href={`/settings`}>Settings</Link>
+            icon: <MdSettings />,
+            label: <Link href={`/setting`}>Settings</Link>
+          },
+          {
+            key: '4',
+            icon: <IoMdLogOut />,
+            label: "Logout"
           },
         ]}
       />
