@@ -1,47 +1,54 @@
-import Link from "next/link";
-import { CustomButton } from "../ui/Button";
-import { H2 } from "../ui/Tag";
-import { CustomInput } from "../ui/Input";
+"use client";
+import React, { useState } from 'react';
+import { Form, Input, Button, message } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
+const AuthenticationPage = () => {
+  const [loading, setLoading] = useState(false);
+  const onFinish = (values) => {
+    setLoading(true)
+    setTimeout(() => {
+      if (values.username === 'admin' && values.password === 'password') {
+        message.success('Login successful!');
+      } else {
+        message.error('Invalid username or password');
+      }
+      setLoading(false);
+    }, 1000);
+  };
 
-const Login = () => {
   return (
-    <section className="h-screen w-screen bg-[#f5f5f5] flex items-center justify-center">
-      <div className="bg-white rounded-lg p-6 w-72 tab:w-80">
-        {/* logo */}
-        <H2 name="Logo" className="text-center" />
-
-        <form action="" className="flex flex-col gap-5">
-          {/* item */}
-          <div className="">
-            <label htmlFor="" className="block mb-1">
-              Email
-            </label>
-            <CustomInput type="text" name="" placeholder="Enter your email" />
-          </div>
-
-          {/* item */}
-          <div className="">
-            <label htmlFor="" className="block mb-1">
-              Password
-            </label>
-            <CustomInput
-              type="password"
-              name=""
-              placeholder="Enter your password"
-            />
-          </div>
-
-          {/* item */}
-          <div className="">
-            <CustomButton type="submit" className="w-full">
-              <Link href="/task">Login</Link>
-            </CustomButton>
-          </div>
-        </form>
-      </div>
-    </section>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', }}>
+      <Form
+        name="normal_login"
+        className="login-form shadow-lg p-6"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+      >
+        <Form.Item
+          name="username"
+          rules={[{ required: true, message: 'Please input your Username!' }]}
+        >
+          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        </Form.Item>
+        <Form.Item
+          name="password"
+          rules={[{ required: true, message: 'Please input your Password!' }]}
+        >
+          <Input
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            type="password"
+            placeholder="Password"
+          />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit" className="login-form-button" loading={loading}>
+            Log in
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 
-export default Login;
+export default AuthenticationPage;
