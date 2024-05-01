@@ -7,18 +7,38 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Avatar, Button, Layout, Menu, theme } from 'antd';
+import { Avatar, Button, Dropdown, Layout, Menu, Space, theme } from 'antd';
 import Link from 'next/link';
 import { IoMdLogOut } from 'react-icons/io';
 import { FaTasks } from 'react-icons/fa';
 import { MdDashboard, MdSettings } from 'react-icons/md';
+import { useRouter } from 'next/navigation';
 const { Header, Sider, Content } = Layout;
 
+
+
 const DashboardLayout = ({ children }) => {
+  const router = useRouter()
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const logOut = () => {
+    // removeUserInfo(authKey);
+    router.push("/login");
+  };
+
+  const items = [
+    {
+      key: "0",
+      label: (
+        <Button onClick={logOut}  type="text" danger>
+         <IoMdLogOut /> Logout
+        </Button>
+      )
+    }
+  ]
   return (
     <Layout style={{ minHeight: '100vh' }}>
     <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -26,28 +46,30 @@ const DashboardLayout = ({ children }) => {
       <Menu
         theme="dark"
         mode="inline"
-        defaultSelectedKeys={['/dashboard']}
+        defaultSelectedKeys={['1']}
+        onChange={(value) =>logOut (value) }
+        
         items={[
           {
-            key: '/dashboard',
+            key: '1',
             icon: <MdDashboard />,
             label: <Link href={`/dashboard`}>Dashboard</Link>
           },
           {
-            key: '/task',
+            key: '2',
             icon: <FaTasks />,
             label: <Link href={`/task`}>Task</Link>
           },
           {
-            key: '/settings',
+            key:  '3',
             icon: <MdSettings />,
             label: <Link href={`/setting`}>Settings</Link>
           },
-          {
-            key: '4',
-            icon: <IoMdLogOut />,
-            label: "Logout"
-          },
+          // {
+          //   key: '4',
+          //   icon: <IoMdLogOut />,
+          //   label: "Logout"
+          // },
         ]}
       />
     </Sider>
@@ -63,7 +85,14 @@ const DashboardLayout = ({ children }) => {
             height: 64,
           }}
         />
-        <Avatar>U</Avatar>
+         <Dropdown menu={{ items }}>
+          <a>
+            <Space wrap size={16}>
+              <Avatar size="large" icon={<UserOutlined />} />
+            </Space>
+          </a>
+        </Dropdown>
+        {/* <Avatar>U</Avatar> */}
       </Header>
       <Content
         style={{
