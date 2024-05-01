@@ -52,5 +52,24 @@
         }
       ]
     }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Task 1",
+      "description": "Description of Task 1",
+      "deadline": "2024-05-05",
+      "members": ["John", "Jane"],
+      "status": "todo"
+    },
+    {
+      "id": 2,
+      "title": "Task 2",
+      "description": "Description of Task 2",
+      "deadline": "2024-05-10",
+      "members": ["Alice", "Bob"],
+      "status": "inProgress"
+    }
   ]
 }
+
