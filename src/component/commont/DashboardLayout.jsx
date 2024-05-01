@@ -34,7 +34,8 @@ const DashboardLayout = ({ children }) => {
       key: "0",
       label: (
         <Button onClick={logOut}  type="text" danger>
-         <IoMdLogOut /> Logout
+         {/* <IoMdLogOut /> */}
+          Logout
         </Button>
       )
     }
