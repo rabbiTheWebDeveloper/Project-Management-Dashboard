@@ -1,6 +1,3 @@
-Certainly! Here's the README formatted with code blocks:
-
-````markdown
 # Project Management Dashboard
 
 ## Table of Contents
@@ -77,6 +74,3 @@ Contributions are welcome! If you find any bugs or want to suggest new features,
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-````
-
-Feel free to copy and paste this formatted README into your project repository!
