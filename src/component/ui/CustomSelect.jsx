@@ -14,6 +14,7 @@ const CustomSelect = ({ status }) => {
     options={[
       { value: 'todo', label: 'To Do' },
       { value: 'inProgress', label: 'In Progress' },
+      { value: 'done', label: 'Done' },
     ]}
   />
   );

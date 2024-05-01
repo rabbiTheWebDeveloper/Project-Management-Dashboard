@@ -10,7 +10,7 @@ import {
 import { Avatar, Button, Dropdown, Layout, Menu, Space, theme } from 'antd';
 import Link from 'next/link';
 import { IoMdLogOut } from 'react-icons/io';
-import { FaTasks } from 'react-icons/fa';
+import { FaProjectDiagram, FaTasks } from 'react-icons/fa';
 import { MdDashboard, MdSettings } from 'react-icons/md';
 import { useRouter } from 'next/navigation';
 const { Header, Sider, Content } = Layout;
@@ -58,11 +58,16 @@ const DashboardLayout = ({ children }) => {
           },
           {
             key: '2',
+            icon: <FaProjectDiagram />,
+            label: <Link href={`/projects`}>Project Overview </Link>
+          },
+          {
+            key: '3',
             icon: <FaTasks />,
             label: <Link href={`/task`}>Task</Link>
           },
           {
-            key:  '3',
+            key:  '4',
             icon: <MdSettings />,
             label: <Link href={`/setting`}>Settings</Link>
           },
