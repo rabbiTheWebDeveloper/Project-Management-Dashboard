@@ -7,7 +7,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Avatar, Button, Layout, Menu, theme } from 'antd';
 import Link from 'next/link';
 import { IoMdLogOut } from 'react-icons/io';
 import { FaTasks } from 'react-icons/fa';
@@ -52,7 +52,7 @@ const DashboardLayout = ({ children }) => {
       />
     </Sider>
     <Layout>
-      <Header style={{ padding: 0, background: colorBgContainer }}>
+      <Header style={{ padding: 0, background: colorBgContainer, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Button
           type="text"
           icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -63,6 +63,7 @@ const DashboardLayout = ({ children }) => {
             height: 64,
           }}
         />
+        <Avatar>U</Avatar>
       </Header>
       <Content
         style={{
