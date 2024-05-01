@@ -1,6 +1,7 @@
 import React from "react";
 import TaskAction from "./TaskAction";
-import { Flex, Tag } from "antd";
+import { Flex, Select, Tag } from "antd";
+import CustomSelect from "../ui/CustomSelect";
 
 const TaskCard = ({ task , index }) => {
   return (
@@ -29,7 +30,8 @@ const TaskCard = ({ task , index }) => {
         {/* {task?.deadline} */}
       </td>
       <td className="text-base font-normal text-custom-text-color2 p-5">
-        {task?.status}
+  <CustomSelect status ={task?.status}/>
+        {/* {task?.status} */}
       </td>
       <TaskAction />
     </tr>
