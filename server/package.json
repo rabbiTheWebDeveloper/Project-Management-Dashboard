@@ -6,7 +6,7 @@
   "scripts": {
     "start": "json-server --watch ./database/data.json"
   },
-  "author": "LWS",
+  "author": "Rabbi",
   "license": "MIT",
   "dependencies": {
     "json-server": "^1.0.0-alpha.23"
