@@ -18,8 +18,35 @@ This project is a web application for managing tasks and projects efficiently. I
 - **Password**: password
 
 ##  Mack Server Information
-- **Api Inpoint Project**: http://localhost:3000/projects
-- **Api Inpoint Task**: http://localhost:3000/tasks
+- **Api entpoint Project**: http://localhost:3000/projects
+- **Api entpoint Task**: http://localhost:3000/tasks
+
+## Setup Instructions
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/rabbithedeveloper/project-management-dashboard.git
+   ```
+
+2. **Navigate to the project directory:**
+
+   ```bash
+   cd server
+   ```
+
+3. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+4. **Run the development server:**
+
+   ```bash
+   npm start
+   ```
+
+   The mock server should now be running on `http://localhost:3000`.
 
 ## Features
 
@@ -52,7 +79,7 @@ This project is a web application for managing tasks and projects efficiently. I
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/project-management-dashboard.git
+   git clone https://github.com/rabbithedeveloper/project-management-dashboard.git
    ```
 
 2. **Navigate to the project directory:**
