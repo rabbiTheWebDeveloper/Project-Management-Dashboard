@@ -21,7 +21,7 @@ This project is a web application for managing tasks and projects efficiently. I
 - **Api entpoint Project**: http://localhost:3000/projects
 - **Api entpoint Task**: http://localhost:3000/tasks
 
-## Setup Instructions
+## Setup Instructions : This is a mock API Server created with Json-Server
 1. **Clone the repository:**
 
    ```bash
