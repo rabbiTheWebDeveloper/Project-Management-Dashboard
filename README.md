@@ -17,6 +17,10 @@ This project is a web application for managing tasks and projects efficiently. I
 - **User**: admin
 - **Password**: password
 
+##  Mack Server Information
+- **Api Inpoint Project**: http://localhost:3000/projects
+- **Api Inpoint Task**: http://localhost:3000/tasks
+
 ## Features
 
 - **Authentication**: Users can log in securely using a username and password. Authentication is handled on the client side with mock responses for successful and unsuccessful logins.
