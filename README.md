@@ -13,6 +13,10 @@
 
 This project is a web application for managing tasks and projects efficiently. It provides features such as task management, project overview, authentication, and more.
 
+## Auth Information
+- **User**: admin
+- **Password**: password
+
 ## Features
 
 - **Authentication**: Users can log in securely using a username and password. Authentication is handled on the client side with mock responses for successful and unsuccessful logins.
